@@ -127,10 +127,21 @@
           margin-bottom: 15px;
         }
       }
+      .card.hide {
+        transition: all 0.6s ease;
+        opacity: 0;
+        filter: blur(8px) brightness(1.8);
+      }
+
+      .card.show {
+        transition: all 0.6s ease;
+        opacity: 1;
+        filter: blur(0) brightness(1);
+      }
     </style>
   </head>
   <body>
-    <div class="card">
+    <div class="card show">
       <h1>دعوة زفاف 💖 محمد & ليان</h1>
       <p>
         بكل حب وسعادة ندعوكم لمشاركتنا يوم العمر، حيث نبدأ معاً قصة حب جديدة
@@ -153,13 +164,23 @@
 
     <script>
       function confirmAttendance() {
-        Swal.fire({
-          title: "🎉 شكراً لتأكيد حضورك!",
-          html: "نتشوق لرؤيتك في زفاف محمد وليان 💕<br>أهلاً وسهلاً بك في يومنا المميز!",
-          icon: "success",
-          confirmButtonText: "إلى اللقاء!",
-          confirmButtonColor: "#d6336c",
-        });
+        const card = document.querySelector(".card");
+
+        card.classList.remove("show"); // إزالة الحالة الأصلية لو موجودة
+        card.classList.add("hide"); // تبدأ تأثير الاختفاء اللامع
+
+        setTimeout(() => {
+          Swal.fire({
+            title: "🎉 شكراً لتأكيد حضورك!",
+            html: "نتشوق لرؤيتك في زفاف محمد وليان 💕<br>أهلاً وسهلاً بك في يومنا المميز!",
+            icon: "success",
+            confirmButtonText: "إلى اللقاء!",
+            confirmButtonColor: "#d6336c",
+          }).then(() => {
+            card.classList.remove("hide");
+            card.classList.add("show"); // ترجع البطاقة بعد غلق التنبيه
+          });
+        }, 600); // وقت تأثير الاختفاء
       }
 
       window.addEventListener(
