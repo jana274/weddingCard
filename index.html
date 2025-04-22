@@ -8,6 +8,8 @@
       href="https://fonts.googleapis.com/css2?family=Amiri&display=swap"
       rel="stylesheet"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <style>
       body {
         font-family: "Amiri", serif;
@@ -137,10 +139,10 @@
         }
       }
 
-      @media (max-width: 600px) {
+      @media (min-width: 320px) and (max-width: 600px) {
         .card {
           max-width: 70%; /* جعل البطاقة تأخذ مساحة أكبر من الشاشة */
-          width: 95%;
+          width: 70%;
           padding: 40px 30px; /* زيادة المسافات الداخلية */
           border-radius: 20px; /* حواف أكبر للبطاقة */
         }
