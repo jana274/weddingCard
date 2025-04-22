@@ -18,7 +18,6 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        font-family: "Cairo", sans-serif;
         direction: rtl;
         background: #fff0f5;
         position: relative;
@@ -60,8 +59,9 @@
         text-align: center;
         box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
         max-width: 500px;
+        width: 100%;
         z-index: 1;
-        animation: fadeIn 1s ease, floatUp 4s ease-in-out infinite; /* تسريع الحركة */
+        animation: fadeIn 1s ease, floatUp 4s ease-in-out infinite;
         opacity: 1;
         position: relative;
       }
@@ -139,23 +139,23 @@
 
       @media (max-width: 600px) {
         .card {
-          max-width: 100%;
-          width: 90%;
-          padding: 15px;
-          border-radius: 15px; /* قلل من الحواف للحصول على مظهر مريح */
+          max-width: 70%; /* جعل البطاقة تأخذ مساحة أكبر من الشاشة */
+          width: 95%;
+          padding: 40px 30px; /* زيادة المسافات الداخلية */
+          border-radius: 20px; /* حواف أكبر للبطاقة */
         }
 
         .card h1 {
-          font-size: 22px; /* حجم النص في العنوان يكون مناسبًا للشاشة الصغيرة */
+          font-size: 30px; /* تكبير حجم النص في العنوان */
         }
 
         .card p {
-          font-size: 16px; /* حجم النص في الفقرات يكون مناسبًا أيضًا */
+          font-size: 20px; /* تكبير حجم النص في الفقرات */
         }
 
         .btn {
-          font-size: 14px; /* تعديل حجم الأزرار لتناسب العرض */
-          padding: 10px 15px;
+          font-size: 18px; /* تكبير حجم الأزرار لتناسب العرض */
+          padding: 15px 30px; /* زيادة المسافة الداخلية في الأزرار */
         }
       }
 
