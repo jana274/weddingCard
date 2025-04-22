@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar">
+  <head>
+    <meta charset="UTF-8" />
+    <title>دعوة زفاف — محمد & ليان 💍</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Cairo", sans-serif;
+        direction: rtl;
+        background: #fff0f5;
+        position: relative;
+      }
+
+      .card {
+        background: rgba(255, 255, 255, 0.92);
+        border-radius: 20px;
+        padding: 35px 30px;
+        text-align: center;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+        max-width: 500px;
+        z-index: 1;
+        animation: fadeIn 1s ease, floatUp 4s ease-in-out infinite; /* تسريع الحركة */
+        opacity: 1;
+        position: relative;
+      }
+
+      @keyframes fadeIn {
+        0% {
+          transform: translateY(30px);
+          opacity: 0;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      @keyframes floatUp {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      .card h1 {
+        color: #d6336c;
+        font-size: 28px;
+        margin-bottom: 20px;
+      }
+
+      .card p {
+        font-size: 18px;
+        color: #555;
+        margin: 10px 0;
+        line-height: 1.8;
+      }
+
+      .btn {
+        background: #d6336c;
+        border: none;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 25px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.3s ease;
+      }
+
+      .btn:hover {
+        background: #b02554;
+      }
+
+      .flower {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: url("flower.png") no-repeat center/contain;
+        animation: fall linear infinite;
+        opacity: 0.8;
+      }
+
+      @keyframes fall {
+        0% {
+          transform: translateY(-50px) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <h1>دعوة زفاف 💖 محمد & ليان</h1>
+      <p>
+        بكل حب وسعادة ندعوكم لمشاركتنا يوم العمر، حيث نبدأ معاً قصة حب جديدة
+        محفوفة بالورد والفرح.
+      </p>
+      <p>📍 المكان: قاعة اللؤلؤة البيضاء — رام الله</p>
+      <p>📅 التاريخ: السبت، 15 يونيو 2025</p>
+      <p>🕕 الوقت: الساعة 6:00 مساءً</p>
+      <p>✨ حضوركم يضيف لنا فرحة فوق فرحتنا!</p>
+      <button class="btn" onclick="confirmAttendance()">أكد الحضور 💌</button>
+    </div>
+
+    <audio id="bgMusic" loop>
+      <source
+        src="https://www.bensound.com/bensound-music/bensound-romantic.mp3"
+        type="audio/mp3"
+      />
+      متصفحك لا يدعم تشغيل الصوت.
+    </audio>
+
+    <script>
+      function confirmAttendance() {
+        Swal.fire({
+          title: "🎉 شكراً لتأكيد حضورك!",
+          html: "نتشوق لرؤيتك في زفاف محمد وليان 💕<br>أهلاً وسهلاً بك في يومنا المميز!",
+          icon: "success",
+          confirmButtonText: "إلى اللقاء!",
+          confirmButtonColor: "#d6336c",
+        });
+      }
+
+      window.addEventListener(
+        "click",
+        () => {
+          document
+            .getElementById("bgMusic")
+            .play()
+            .catch(() => {});
+        },
+        { once: true }
+      );
+
+      setInterval(() => {
+        const flower = document.createElement("div");
+        flower.className = "flower";
+        flower.style.left = Math.random() * window.innerWidth + "px";
+        flower.style.animationDuration = 4 + Math.random() * 5 + "s";
+        document.body.appendChild(flower);
+        setTimeout(() => flower.remove(), 9000);
+      }, 500);
+    </script>
+  </body>
+</html>
